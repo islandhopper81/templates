@@ -87,7 +87,7 @@ sub _check_rqrd_file_param {
 sub _check_rqrd_dir_param {
 	my ($dir, $name) = @_;
 
-	_check_rqrd_param($file, $name);
+	_check_rqrd_param($dir, $name);
 	
 	if ( ! -d $dir ) { 
 		pod2usage(-message => "ERROR: --$name $dir is not a directory\n\n",
