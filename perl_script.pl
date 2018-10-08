@@ -12,6 +12,8 @@ use Readonly;
 use version; our $VERSION = qv('0.0.1');
 use Log::Log4perl qw(:easy);
 use Log::Log4perl::CommandLine qw(:all);
+use Cwd;
+use DateTime;
 use UtilSY qw(:all);
 
 # Subroutines #
@@ -39,7 +41,20 @@ check_params();
 ########
 # MAIN #
 ########
+my $start_time = DateTime->now();
+$logger->info("Command: " . join " ", $0, @ARGV);
+$logger->info("Start time: " . get_datetime_fmt1($start_time));
+$logger->info("User: " . getpwuid($<));
+$logger->info("Current working dir: " . getcwd());
 
+
+## CODE ##
+
+
+my $end_time = DateTime->now();
+$logger->info("End time: " . get_datetime_fmt1($end_time));
+$logger->info("Time Elapsed: " . runtime($end_time, $start_time));
+$logger->info("Finished");
 
 
 ########
@@ -47,13 +62,13 @@ check_params();
 ########
 sub check_params {
 	# check required files
-	_check_rqrd_file_param($file, $name);
+	#_check_rqrd_file_param($file, $name);
 
 	# check required input directories
-	_check_rqrd_dir_param($dir, $name);
+	#_check_rqrd_dir_param($dir, $name);
 
 	# check other params that are not files or dirs
-	_check_rqrd_param($val, $name);
+	#_check_rqrd_param($val, $name);
 
 	return 1;
 }
