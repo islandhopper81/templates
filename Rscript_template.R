@@ -1,15 +1,14 @@
 #!/usr/bin/evn Rscript
 
-# NOTE: this template is incomplete!
-# I still want to add the following things:
-# 1) inline documentation
-# 2) usage statement that prints inline docs
-
 ### Description
 # [description]
 
 ### R Libraries
 require("getopt", quietly=T)
+require("ggplot2", quietly=T)
+require("gridGraphics", quietly=T)
+require("grid", quietly=T)
+require("gridExtra", quietly=T)
 
 ### Defualt variables
 verbose = FALSE
@@ -23,7 +22,8 @@ verbose = FALSE
 #   4) data type (logical, integer, double, complex, character)
 # When you call this script the args are named like --verbose or -v
 params = matrix(c(
-  "xValue", "x", 1, "double",
+  "data", "d", 1, "character",
+  "out", "o", 1, "character",
   "verbose", "v", 0, "logical"
   ), byrow=TRUE, ncol=4)
 opt = getopt(params)
@@ -36,7 +36,7 @@ if (! is.null(opt$verbose)) {
 
 ### Functions
 main = function() {
-
+	data = read.table(opt$data, header=T, sep="\t")
 }
 
 # run the main function to execute the program
