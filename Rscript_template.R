@@ -6,7 +6,6 @@
 ### R Libraries
 require("getopt", quietly=T)
 require("ggplot2", quietly=T)
-require("gridGraphics", quietly=T)
 require("grid", quietly=T)
 require("gridExtra", quietly=T)
 
