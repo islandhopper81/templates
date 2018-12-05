@@ -9,6 +9,10 @@ require("ggplot2", quietly=T)
 require("grid", quietly=T)
 require("gridExtra", quietly=T)
 
+# gglot theme
+theme_set(theme_gray(base_size=16))
+theme_update(plot.title = element_text(hjust= 0.5))
+
 ### Defualt variables
 verbose = FALSE
 
