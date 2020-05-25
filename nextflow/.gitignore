@@ -1,0 +1,8 @@
+.nextflow*
+pipeline_trace.*
+report.html*
+timeline*
+work_cache_slurm*
+*swp
+work_cache_local/
+work/
